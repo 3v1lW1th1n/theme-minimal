@@ -2,7 +2,7 @@
 
 return [
 
-    'name' => 'theme-one',
+    'name' => 'theme-minimal',
 
     'type' => 'theme',
 
@@ -32,7 +32,6 @@ return [
     'positions' => [
 
         'navbar' => 'Navbar',
-        'hero' => 'Hero',
         'top' => 'Top',
         'sidebar' => 'Sidebar',
         'bottom' => 'Bottom',
@@ -50,11 +49,7 @@ return [
         'title_large' => false,
         'alignment' => '',
         'html_class' => '',
-        'sidebar_first' => false,
-        'hero_image' => '',
-        'hero_viewport' => '',
-        'hero_contrast' => '',
-        'navbar_transparent' => ''
+        'sidebar_first' => false
 
     ],
 
@@ -79,11 +74,7 @@ return [
     /**
      * Configuration defaults
      */
-    'config' => [
-
-        'logo_contrast' => ''
-
-    ],
+    'config' => [],
 
     /**
      * Events
@@ -112,49 +103,7 @@ return [
                 return;
             }
 
-            $classes = [
-                'navbar' => 'tm-navbar',
-                'hero' => ''
-            ];
-
-            $sticky = [
-                'media' => 767,
-                'showup' => true,
-                'animation' => 'uk-animation-slide-top'
-            ];
-
-            if ($event['hero_viewport']) {
-                $classes['hero'] = 'tm-hero-height';
-            }
-
-            // Sticky overlay navbar if hero position exists
-            if ($event['navbar_transparent'] && $view->position()->exists('hero') && $event['hero_image']) {
-
-                $sticky['top'] = '.uk-sticky-placeholder + *';
-                $classes['navbar'] .= ' tm-navbar-overlay tm-navbar-transparent';
-
-                if ($event['hero_viewport']) {
-                    $classes['hero'] = 'uk-height-viewport';
-                } else {
-                    $classes['hero'] = 'tm-hero-padding';
-                }
-
-                if ($event['hero_contrast']) {
-
-                    $sticky['clsinactive'] = 'tm-navbar-transparent tm-navbar-contrast';
-                    $classes['navbar'] .= ' tm-navbar-contrast';
-
-                } else {
-                    $sticky['clsinactive'] = 'tm-navbar-transparent';
-                }
-
-            }
-
-            if ($event['hero_contrast'] && $event['hero_image']) {
-                $classes['hero'] .= ' uk-contrast';
-            }
-
-            $classes['sticky'] = 'data-uk-sticky=\''.json_encode($sticky).'\'';
+            $classes = [];
 
             $event['classes'] = $classes;
         },

@@ -11,7 +11,7 @@
     <body>
 
         <?php if ($params['logo'] || $view->menu()->exists('main') || $view->position()->exists('navbar')) : ?>
-        <div class="<?= $params['classes.navbar'] ?>" <?= $params['classes.sticky'] ?>>
+        <div class="tm-navbar">
             <div class="uk-container uk-container-center">
 
                 <nav class="uk-navbar">
@@ -20,12 +20,6 @@
                     <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
 
                         <img class="tm-logo" src="<?= $this->escape($params['logo']) ?>" alt="">
-
-                        <?php if ($params['logo_contrast']) : ?>
-                        <img class="tm-logo-contrast" src="<?= $this->escape($params['logo_contrast']) ?>" alt="">
-                        <?php else : ?>
-                        <img class="tm-logo-contrast" src="<?= $this->escape($params['logo']) ?>" alt="">
-                        <?php endif ?>
 
                     </a>
                     <?php endif ?>
@@ -48,18 +42,6 @@
             </div>
         </div>
         <?php endif ?>
-
-        <?php if ($view->position()->exists('hero')) : ?>
-        <div id="tm-hero" class="tm-hero uk-block uk-block-large uk-cover-background uk-flex uk-flex-middle <?= $params['classes.hero'] ?>" <?= $params['hero_image'] ? "style=\"background-image: url('{$view->url($params['hero_image'])}');\"" : '' ?>>
-            <div class="uk-container uk-container-center">
-
-                <section class="uk-grid uk-grid-match" data-uk-grid-margin>
-                    <?= $view->position('hero', 'position-grid.php') ?>
-                </section>
-
-            </div>
-        </div>
-        <?php endif; ?>
 
         <?php if ($view->position()->exists('top')) : ?>
         <div id="tm-top" class="tm-top uk-block uk-block-muted">
