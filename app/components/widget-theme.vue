@@ -73,6 +73,6 @@
 
     };
 
-    window.Widgets.components['widget-theme'] = module.exports;
+    window.Widgets.components['theme'] = module.exports;
 
 </script>
