@@ -74,7 +74,11 @@ return [
     /**
      * Configuration defaults
      */
-    'config' => [],
+    'config' => [
+
+        'logo_small' => ''
+
+    ],
 
     /**
      * Events

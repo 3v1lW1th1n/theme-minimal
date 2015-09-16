@@ -16,15 +16,24 @@
 html { overflow-y: scroll; }
 
 
-/* Navbar
+/* Header
  ========================================================================== */
 
-.tm-navbar {
-    position: relative;
-    background: @navbar-background;
-    box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15);
-    z-index: 1;
+.tm-header { padding-top: 150px; }
+
+.tm-logo { margin-bottom: 30px; }
+
+
+/* Phone landscape and smaller */
+@media (max-width: @breakpoint-small-max) {
+
+    .tm-header { padding-top: 0px; }
+
+    .tm-header > .uk-flex { display: block; }
+
 }
+
+
 
 
 /* Blocks

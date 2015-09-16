@@ -11,21 +11,25 @@
     <body>
 
         <?php if ($params['logo'] || $view->menu()->exists('main') || $view->position()->exists('navbar')) : ?>
-        <div class="tm-navbar">
-            <div class="uk-container uk-container-center">
+        <div class="tm-header">
+            <div class="uk-container uk-container-center uk-flex uk-flex-middle uk-flex-column">
+
+                <?php if ($params['logo']) : ?>
+                <a class="tm-logo uk-hidden-small" href="<?= $view->url()->get() ?>">
+                    <img src="<?= $this->escape($params['logo']) ?>" alt="">
+                </a>
+                <?php endif ?>
 
                 <nav class="uk-navbar">
 
                     <?php if ($params['logo']) : ?>
-                    <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
-
-                        <img class="tm-logo" src="<?= $this->escape($params['logo']) ?>" alt="">
-
+                    <a class="uk-navbar-brand uk-visible-small" href="<?= $view->url()->get() ?>">
+                        <img class="uk-responsive-height" src="<?= ($params['logo_small']) ? $this->escape($params['logo_small']) : $this->escape($params['logo']) ?>" alt="">
                     </a>
                     <?php endif ?>
 
                     <?php if ($view->menu()->exists('main') || $view->position()->exists('navbar')) : ?>
-                    <div class="uk-navbar-flip uk-hidden-small">
+                    <div class="uk-hidden-small">
                         <?= $view->menu('main', 'menu-navbar.php') ?>
                         <?= $view->position('navbar', 'position-blank.php') ?>
                     </div>
@@ -89,7 +93,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('footer')) : ?>
-        <div id="tm-footer" class="tm-footer uk-block uk-block-secondary uk-contrast">
+        <div id="tm-footer" class="tm-footer uk-block uk-block-muted">
             <div class="uk-container uk-container-center uk-text-center">
 
                 <section class="uk-grid uk-grid-match" data-uk-grid-margin>
