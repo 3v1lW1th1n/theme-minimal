@@ -76,7 +76,8 @@ return [
      */
     'config' => [
 
-        'logo_small' => ''
+        'logo_small' => '',
+        'blog_alignment' => true
 
     ],
 
