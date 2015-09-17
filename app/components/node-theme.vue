@@ -5,21 +5,21 @@
         <div class="uk-form-row" v-if="node.type === 'page'">
             <span class="uk-form-label">{{ 'Title' | trans }}</span>
             <div class="uk-form-controls uk-form-controls-text">
-                <label><input type="checkbox" value="center-content" v-model="node.theme.title_hide"> {{ 'Hide Title' | trans }}</label>
+                <label><input type="checkbox" v-model="node.theme.title_hide"> {{ 'Hide Title' | trans }}</label>
             </div>
         </div>
 
         <div class="uk-form-row" v-if="node.type === 'page'">
             <span class="uk-form-label">{{ 'Title Size' | trans }}</span>
             <div class="uk-form-controls uk-form-controls-text">
-                <label><input type="checkbox" value="center-content" v-model="node.theme.title_large"> {{ 'Extra large title.' | trans }}</label>
+                <label><input type="checkbox" v-model="node.theme.title_large"> {{ 'Extra large title.' | trans }}</label>
             </div>
         </div>
 
         <div class="uk-form-row" v-if="node.type === 'page'">
             <span class="uk-form-label">{{ 'Alignment' | trans }}</span>
             <div class="uk-form-controls uk-form-controls-text">
-                <label><input type="checkbox" value="center-content" v-model="node.theme.alignment"> {{ 'Center the title and content.' | trans }}</label>
+                <label><input type="checkbox" v-model="node.theme.alignment"> {{ 'Center the title and content.' | trans }}</label>
             </div>
         </div>
 
@@ -33,7 +33,7 @@
         <div class="uk-form-row">
             <span class="uk-form-label">{{ 'Sidebar' | trans }}</span>
             <div class="uk-form-controls uk-form-controls-text">
-                <label><input type="checkbox" v-model="node.theme['sidebar_first']"> {{ 'Show the sidebar before the content.' | trans }}</label>
+                <label><input type="checkbox" v-model="node.theme.sidebar_first"> {{ 'Show the sidebar before the content.' | trans }}</label>
             </div>
         </div>
 
