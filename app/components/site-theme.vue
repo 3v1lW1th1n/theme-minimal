@@ -22,7 +22,7 @@
         <div class="uk-form-row">
             <label class="uk-form-label">{{ 'Blog' | trans }}</label>
             <div class="uk-form-controls uk-form-controls-text">
-                <label><input type="checkbox" v-model="site.theme.blog_alignment"> {{ 'Center the blog title and its content' | trans }}</label>
+                <label><input type="checkbox" v-model=""> {{ 'Center the blog title and its content' | trans }}</label>
             </div>
         </div>
 
