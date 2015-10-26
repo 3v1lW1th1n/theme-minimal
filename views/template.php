@@ -11,33 +11,31 @@
     <body>
 
         <?php if ($params['logo'] || $view->menu()->exists('main') || $view->position()->exists('navbar')) : ?>
-        <div class="tm-header">
+        <div class="tm-navbar">
             <div class="uk-container uk-container-center">
 
-                    <nav class="uk-navbar">
+                <nav class="uk-navbar">
 
-                        <?php if ($params['logo']) : ?>
-                        <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
-                            <img class="tm-logo" src="<?= $this->escape($params['logo']) ?>" alt="">
-                        </a>
-                        <?php endif ?>
+                    <?php if ($params['logo']) : ?>
+                    <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
+                        <img class="tm-logo" src="<?= $this->escape($params['logo']) ?>" alt="">
+                    </a>
+                    <?php endif ?>
 
-                        <?php if ($view->menu()->exists('main') || $view->position()->exists('navbar')) : ?>
-                        <div class="uk-flex uk-flex-right uk-hidden-small">
-                            <?= $view->menu('main', 'menu-navbar.php') ?>
-                            <?= $view->position('navbar', 'position-blank.php') ?>
-                        </div>
-                        <?php endif ?>
+                    <?php if ($view->menu()->exists('main') || $view->position()->exists('navbar')) : ?>
+                    <div class="uk-navbar-flip uk-hidden-small">
+                        <?= $view->menu('main', 'menu-navbar.php') ?>
+                        <?= $view->position('navbar', 'position-blank.php') ?>
+                    </div>
+                    <?php endif ?>
 
-                        <?php if ($view->position()->exists('offcanvas') || $view->menu()->exists('offcanvas')) : ?>
-                        <div class="uk-navbar-flip uk-visible-small">
-                            <a href="#offcanvas" class="uk-navbar-toggle" data-uk-offcanvas></a>
-                        </div>
-                        <?php endif ?>
+                    <?php if ($view->position()->exists('offcanvas') || $view->menu()->exists('offcanvas')) : ?>
+                    <div class="uk-navbar-flip uk-visible-small">
+                        <a href="#offcanvas" class="uk-navbar-toggle" data-uk-offcanvas></a>
+                    </div>
+                    <?php endif ?>
 
-                    </nav>
-
-                </div>
+                </nav>
 
             </div>
         </div>

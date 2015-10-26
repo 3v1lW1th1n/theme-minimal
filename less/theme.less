@@ -16,33 +16,27 @@
 html { overflow-y: scroll; }
 
 
-/* Header
+/* Navbar
  ========================================================================== */
 
-.tm-header { padding: 30px 0; }
+.tm-navbar { padding: 30px 0; }
 
 
 /* Phone landscape and smaller */
 @media (max-width: @breakpoint-small-max) {
 
-    .tm-header { padding-top: 0px; }
-
-    .tm-header > .uk-flex { display: block; }
+    .tm-navbar { padding: 10px 0; }
 
 }
-
-.tm-header + .tm-main { padding-top: 0; }
 
 
 /* Blocks
  ========================================================================== */
 
-/*
- * Footer
- */
+.tm-navbar + .tm-main { padding-top: 0; }
 
 /*
- * Layout
+ * Footer
  */
 
 /* Phone landscape and bigger */
@@ -53,26 +47,14 @@ html { overflow-y: scroll; }
         padding-bottom: 60px;
     }
 
-    .tm-bottom + .tm-footer { padding-top: 60px; }
-
 }
 
-.tm-footer .uk-panel + .uk-panel { margin-top: @global-grid-gutter; }
-
-/*
- * Styling
- */
-
-.tm-footer a,
-.tm-footer .uk-list a { color: @global-muted-color; }
-
+/* Panels */
 .tm-footer .uk-panel-title {
     font-size: 13px;
     font-weight: 300;
     text-transform: uppercase;
 }
-
-.tm-bottom + .tm-footer { background-color: #fff; }
 
 
 /* Blog
