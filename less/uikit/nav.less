@@ -23,7 +23,7 @@
 @nav-subtitle-line-height:                      14px;
 
 @nav-sub-padding-vertical:                      10px;
-@nav-sub-padding-left:                          40px;
+@nav-sub-padding-left:                          0;
 
 @nav-parent-icon-width:                         @global-line-height;
 
@@ -34,6 +34,7 @@
 @nav-side-active-color:                         @global-color;
 @nav-side-header-color:                         @global-dark-color;
 @nav-side-divider-border:                       @global-border;
+@nav-side-divider-border-width:                 2px;
 @nav-side-nested-color:                         @global-muted-color;
 @nav-side-nested-hover-color:                   @global-color;
 
@@ -55,12 +56,13 @@
 
 @nav-offcanvas-padding-horizontal:              20px;
 @nav-offcanvas-color:                           @offcanvas-panel-link-color;
-@nav-offcanvas-hover-background:                lighten(@offcanvas-bar-background, 15%);
+@nav-offcanvas-hover-background:                transparent;
 @nav-offcanvas-hover-color:                     @offcanvas-panel-link-hover-color;
-@nav-offcanvas-active-background:               darken(@offcanvas-bar-background, 10%);
+@nav-offcanvas-active-background:               transparent;
 @nav-offcanvas-active-color:                    @offcanvas-panel-link-hover-color;
 @nav-offcanvas-header-color:                    @global-contrast-color;
-@nav-offcanvas-divider-border:                  lighten(@offcanvas-bar-background, 15%);
+@nav-offcanvas-divider-border:                  lighten(@offcanvas-bar-background, 8%);
+@nav-offcanvas-divider-border-width:            2px;
 @nav-offcanvas-nested-color:                    @offcanvas-panel-link-color;
 @nav-offcanvas-nested-hover-color:              @offcanvas-panel-link-hover-color;
 
@@ -97,9 +99,10 @@
 //
 
 .hook-nav-side() {
-    padding: 8px 16px;
+    padding: 12px 0;
     font-size: 13px;
     line-height: 16px;
+    border-top: 1px solid @global-border;
 }
 
 // Hover
@@ -112,7 +115,7 @@
 // Sub-object: `uk-nav-header`
 //
 
-.hook-nav-side-header() { padding: 8px 16px; }
+.hook-nav-side-header() { padding: 12px 0; }
 
 //
 // Sub-object: `uk-nav-divider`
@@ -183,8 +186,13 @@
 //
 
 .hook-nav-offcanvas() {
+    margin: 0 @nav-offcanvas-padding-horizontal;
+    padding-left: 0;
+    padding-right: 0;
+    border-top: 1px solid lighten(@offcanvas-bar-background, 8%);
     font-size: 13px;
-    line-height: 16px;
+    -webkit-transition: color 0.05s linear;
+    transition: color 0.05s linear;
 }
 
 // Hover
@@ -212,7 +220,7 @@
 .hook-nav-misc() {
 
     .uk-nav-dropdown  > li:not(.uk-nav-divider),
-    .uk-nav-navbar  > li:not(.uk-nav-divider) { padding: 2px 20px; }
+    .uk-nav-navbar  > li:not(.uk-nav-divider) { padding: 5px 20px; }
 
     .uk-nav-dropdown  > li > a,
     .uk-nav-navbar  > li > a {
@@ -226,20 +234,25 @@
 
     }
 
-    /*
-     * `uk-nav-sub`
-     */
+    // `uk-nav-sub`
 
-    .uk-nav-sub > li > a,
-    .uk-nav-sub ul > li > a { font-size: 13px; }
+    .uk-nav-sub li > a { font-size: 13px; }
 
-    /*
-     * `uk-nav-side`
-     */
 
-    .uk-nav-side > li:not(:first-child) > a { border-top: 1px solid @global-border; }
+    // `uk-nav-side`
 
-    .uk-nav-offcanvas ul.uk-nav-sub { background-color: @nav-offcanvas-hover-background; }
+    .uk-nav-side li:first-child a,
+    .uk-nav-side .uk-nav-header + li a,
+    .uk-nav-side .uk-nav-divider + li a { border-top: none; }
+
+
+    // `uk-nav-offcanvas`
+
+    .uk-nav-offcanvas li:first-child a,
+    .uk-nav-offcanvas .uk-nav-header + li a,
+    .uk-nav-offcanvas .uk-nav-divider + li a { border-top: none; }
+
+    .uk-nav-offcanvas .uk-nav-sub { padding: 0 0 @nav-offcanvas-padding-horizontal @nav-offcanvas-padding-horizontal; }
 
 
 }

@@ -87,8 +87,10 @@
 
     }
 
-    .uk-button-primary:hover {
+    .uk-button-primary:hover,
+    .uk-button-primary:focus {
         background-color: #fff;
+        border-color: #fff;
         color: @global-dark-color;
     }
 
@@ -143,11 +145,15 @@
 
 .hook-panel-misc() {
 
+
+
     /* Only xlarge screens */
     @media (min-width: @breakpoint-xlarge) {
 
         .uk-panel-space,
         .uk-panel-box { padding: 50px; }
+
+        .uk-panel-box .uk-nav { margin: 0; }
 
         .uk-panel-box .uk-panel-teaser {
             margin-top: -50px;

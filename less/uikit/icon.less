@@ -7,6 +7,8 @@
 // Variables
 // ========================================================================
 
+@icon-small-font-size:                          13px;
+
 @icon-hover-color:                              @global-muted-color;
 @icon-hover-hover-color:                        @global-dark-color;
 
@@ -19,8 +21,14 @@
 @icon-button-hover-background:                  #000;
 @icon-button-hover-color:                       @global-contrast-color;
 
-@icon-button-active-background:                 @global-primary-active-background;
+@icon-button-active-background:                 #000;
 @icon-button-active-color:                      @global-contrast-color;
+
+//
+// New
+//
+
+@icon-button-border:                            lighten(@icon-button-color, 10%);
 
 
 // Modifier: `uk-icon-hover`
@@ -38,7 +46,7 @@
 // ========================================================================
 
 .hook-icon-button() {
-    border: 1px solid @global-border;
+    border: 1px solid @icon-button-border;
     line-height: (@icon-button-height - 2);
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
