@@ -12,14 +12,6 @@
     <div class="uk-form uk-form-horizontal">
 
         <div class="uk-form-row">
-            <label class="uk-form-label">{{ 'Logo Small' | trans }}</label>
-            <div class="uk-form-controls uk-form-width-large">
-                <input-image source="{{@ config.logo_small }}"></input-image>
-                <p class="uk-form-help-block">{{ 'Select an alternative logo which looks great on smaller devices.' | trans }}</p>
-            </div>
-        </div>
-
-        <div class="uk-form-row">
             <label class="uk-form-label">{{ 'Blog' | trans }}</label>
             <div class="uk-form-controls uk-form-controls-text">
                 <label><input type="checkbox" v-model=""> {{ 'Center the blog title and its content' | trans }}</label>
