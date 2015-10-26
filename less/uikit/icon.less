@@ -10,12 +10,13 @@
 @icon-hover-color:                              @global-muted-color;
 @icon-hover-hover-color:                        @global-dark-color;
 
+@icon-button-width:                             48px;
 @icon-button-height:                            @icon-button-width;
-@icon-button-background:                        @global-primary-background;
-@icon-button-font-size:                         round((@icon-button-width * 0.5));
-@icon-button-color:                             @global-contrast-color;
+@icon-button-background:                        transparent;
+@icon-button-font-size:                         20px;
+@icon-button-color:                             @global-muted-color;
 
-@icon-button-hover-background:                  @global-primary-hover-background;
+@icon-button-hover-background:                  #000;
 @icon-button-hover-color:                       @global-contrast-color;
 
 @icon-button-active-background:                 @global-primary-active-background;
@@ -26,8 +27,8 @@
 // ========================================================================
 
 .hook-icon-hover() {
-	-webkit-transition: color 0.05s linear;
-    transition: color 0.05s linear;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 
 .hook-icon-hover-hover() {}
@@ -36,14 +37,18 @@
 // Modifier: `uk-icon-button`
 // ========================================================================
 
-.hook-icon-button() {}
+.hook-icon-button() {
+    border: 1px solid @global-border;
+    line-height: (@icon-button-height - 2);
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
 
 // Hover
-.hook-icon-button-hover() {}
+.hook-icon-button-hover() { border-color: #000; }
 
 // Active
-.hook-icon-button-active() {}
-
+.hook-icon-button-active() { border-color: #000; }
 
 // Miscellaneous
 // ========================================================================

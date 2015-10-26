@@ -7,29 +7,30 @@
 // Variables
 // ========================================================================
 
-@nav-padding-vertical:                          6px;
-@nav-padding-horizontal:                        25px;
+@nav-padding-vertical:                          0;
+@nav-padding-horizontal:                        0;
 
 @nav-header-padding-vertical:                   @nav-padding-vertical;
-@nav-header-padding-horizontal:                 @nav-padding-horizontal;
-@nav-header-font-size:                          round((@global-font-size * 0.85)); // 12px / 14px
+@nav-header-padding-horizontal:                 20px;
+@nav-header-font-size:                          13px;
 @nav-header-font-weight:                        normal;
 @nav-header-margin-top:                         @global-margin;
 
-@nav-divider-margin-vertical:                   15px;
-@nav-divider-margin-horizontal:                 0;
+@nav-divider-margin-vertical:                   20px;
+@nav-divider-margin-horizontal:                 20px;
 
-@nav-subtitle-font-size:                        round((@global-font-size * 0.85)); // 12px / 14px
-@nav-subtitle-line-height:                      round((@nav-subtitle-font-size * 1.46)); // 18px / 20px
+@nav-subtitle-font-size:                        10px;
+@nav-subtitle-line-height:                      14px;
 
-@nav-sub-padding-left:                          (@nav-padding-horizontal + @nav-nested-padding-left);
+@nav-sub-padding-vertical:                      10px;
+@nav-sub-padding-left:                          40px;
 
 @nav-parent-icon-width:                         @global-line-height;
 
 @nav-side-color:                                @global-color;
-@nav-side-hover-background:                     @global-default-background;
+@nav-side-hover-background:                     rgba(0,0,0,0);
 @nav-side-hover-color:                          @global-color;
-@nav-side-active-background:                    @global-default-background;
+@nav-side-active-background:                    rgba(0,0,0,0);
 @nav-side-active-color:                         @global-color;
 @nav-side-header-color:                         @global-dark-color;
 @nav-side-divider-border:                       @global-border;
@@ -37,8 +38,8 @@
 @nav-side-nested-hover-color:                   @global-color;
 
 @nav-dropdown-color:                            @global-color;
-@nav-dropdown-hover-background:                 @global-primary-background;
-@nav-dropdown-hover-color:                      @global-contrast-color;
+@nav-dropdown-hover-background:                 rgba(0,0,0,0);
+@nav-dropdown-hover-color:                      @global-color;
 @nav-dropdown-header-color:                     @global-color;
 @nav-dropdown-divider-border:                   @global-border;
 @nav-dropdown-nested-color:                     @global-muted-color;
@@ -52,13 +53,14 @@
 @nav-navbar-nested-color:                       @global-muted-color;
 @nav-navbar-nested-hover-color:                 @global-dark-color;
 
+@nav-offcanvas-padding-horizontal:              20px;
 @nav-offcanvas-color:                           @offcanvas-panel-link-color;
-@nav-offcanvas-hover-background:                lighten(@offcanvas-bar-background, 5%);
+@nav-offcanvas-hover-background:                lighten(@offcanvas-bar-background, 15%);
 @nav-offcanvas-hover-color:                     @offcanvas-panel-link-hover-color;
 @nav-offcanvas-active-background:               darken(@offcanvas-bar-background, 10%);
 @nav-offcanvas-active-color:                    @offcanvas-panel-link-hover-color;
-@nav-offcanvas-header-color:                    @offcanvas-panel-color;
-@nav-offcanvas-divider-border:                  darken(@offcanvas-bar-background, 10%);
+@nav-offcanvas-header-color:                    @global-contrast-color;
+@nav-offcanvas-divider-border:                  lighten(@offcanvas-bar-background, 15%);
 @nav-offcanvas-nested-color:                    @offcanvas-panel-link-color;
 @nav-offcanvas-nested-hover-color:              @offcanvas-panel-link-hover-color;
 
@@ -78,7 +80,7 @@
 // Sub-object: `uk-nav-sub`
 // ========================================================================
 
-.hook-nav-sub() {}
+.hook-nav-sub() { padding: @nav-sub-padding-vertical 0 20px @nav-sub-padding-left; }
 
 
 // Modifier: `uk-nav-parent-icon`
@@ -94,7 +96,11 @@
 // Items
 //
 
-.hook-nav-side() { padding: 8px 16px; }
+.hook-nav-side() {
+    padding: 8px 16px;
+    font-size: 13px;
+    line-height: 16px;
+}
 
 // Hover
 .hook-nav-side-hover() {}
@@ -112,7 +118,7 @@
 // Sub-object: `uk-nav-divider`
 //
 
-.hook-nav-side-divider() {}
+.hook-nav-side-divider() { margin: 10px 0; }
 
 
 // Modifier `uk-nav-dropdown`
@@ -176,7 +182,10 @@
 // Items
 //
 
-.hook-nav-offcanvas() {}
+.hook-nav-offcanvas() {
+    font-size: 13px;
+    line-height: 16px;
+}
 
 // Hover
 .hook-nav-offcanvas-hover() {}
@@ -200,4 +209,37 @@
 // Miscellaneous
 // ========================================================================
 
-.hook-nav-misc() {}
+.hook-nav-misc() {
+
+    .uk-nav-dropdown  > li:not(.uk-nav-divider),
+    .uk-nav-navbar  > li:not(.uk-nav-divider) { padding: 2px 20px; }
+
+    .uk-nav-dropdown  > li > a,
+    .uk-nav-navbar  > li > a {
+
+        display: inline-block;
+        border-bottom: 1px solid transparent;
+        font-size: 13px;
+        line-height: 16px;
+
+        &:hover { border-bottom-color: @global-dark-color; }
+
+    }
+
+    /*
+     * `uk-nav-sub`
+     */
+
+    .uk-nav-sub > li > a,
+    .uk-nav-sub ul > li > a { font-size: 13px; }
+
+    /*
+     * `uk-nav-side`
+     */
+
+    .uk-nav-side > li:not(:first-child) > a { border-top: 1px solid @global-border; }
+
+    .uk-nav-offcanvas ul.uk-nav-sub { background-color: @nav-offcanvas-hover-background; }
+
+
+}

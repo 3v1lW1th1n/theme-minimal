@@ -12,27 +12,27 @@
 @button-small-height:                           @global-height-small;
 @button-large-height:                           @global-height-large;
 
-@button-line-height:                            @global-height - 2;
-@button-mini-line-height:                       @global-height-mini - 2;
-@button-small-line-height:                      @global-height-small - 2;
-@button-large-line-height:                      @global-height-large - 2;
+@button-line-height:                            @global-height;
+@button-mini-line-height:                       @global-height-mini;
+@button-small-line-height:                      @global-height-small;
+@button-large-line-height:                      @global-height-large;
 
-@button-mini-font-size:                         round((@global-font-size * 0.85)); // 14px
-@button-small-font-size:                        round((@global-font-size * 0.85)); // 14px
-@button-large-font-size:                        round((@global-font-size * 1.14)); // 18px
+@button-mini-font-size:                         11px;
+@button-small-font-size:                        12px;
+@button-large-font-size:                        17px;
 
-@button-padding-horizontal:                     25px;
+@button-padding-horizontal:                     20px;
 @button-mini-padding-horizontal:                8px;
 @button-small-padding-horizontal:               12px;
-@button-large-padding-horizontal:               35px;
+@button-large-padding-horizontal:               30px;
 
-@button-font-size:                              round((@global-font-size * 0.85)); // 14px
+@button-font-size:                              13px;
 @button-background:                             transparent;
 @button-color:                                  @global-muted-color;
 @button-hover-background:                       transparent;
-@button-hover-color:                            #888;
+@button-hover-color:                            @global-dark-color;
 @button-active-background:                      transparent;
-@button-active-color:                           @global-color;
+@button-active-color:                           @global-dark-color;
 
 @button-primary-background:                     @global-primary-background;
 @button-primary-color:                          @global-contrast-color;
@@ -56,7 +56,7 @@
 @button-danger-active-color:                    @global-contrast-color;
 
 @button-disabled-background:                    transparent;
-@button-disabled-color:                         lighten(@button-color, 10%);
+@button-disabled-color:                         lighten(@global-color, 70%);
 
 @button-link-color:                             @global-link-color;
 @button-link-hover-color:                       @global-link-hover-color;

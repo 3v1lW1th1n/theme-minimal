@@ -8,25 +8,24 @@
 // ========================================================================
 
 @panel-title-margin-bottom:                     @global-margin;
-@panel-title-font-size:                         round((@global-font-size * 1.28)); // 18px / 20px
-@panel-title-line-height:                       round((@panel-title-font-size * 1.32)); // 24px / 26px
+@panel-title-font-size:                         18px;
+@panel-title-line-height:                       24px;
 @panel-title-font-weight:                       300;
 @panel-title-color:                             @global-dark-color;
 
 @panel-teaser-margin-bottom:                    @panel-box-padding;
 
 @panel-box-padding:                             25px;
-@panel-box-background:                          @global-background;
+@panel-box-background:                          @global-default-hover-background;
 @panel-box-color:                               @global-color;
 @panel-box-title-color:                         @global-dark-color;
+@panel-box-badge-top:                           20px;
 
 @panel-box-teaser-margin:                       -(@panel-box-padding);
 
-@panel-box-badge-top:                           0;
-
-@panel-box-primary-background:                  @global-default-hover-background;
-@panel-box-primary-color:                       @global-color;
-@panel-box-primary-title-color:                 @global-dark-color;
+@panel-box-primary-background:                  #222;
+@panel-box-primary-color:                       @global-muted-color;
+@panel-box-primary-title-color:                 @global-contrast-color;
 
 @panel-box-secondary-background:                @global-default-background;
 @panel-box-secondary-color:                     @global-color;
@@ -63,7 +62,7 @@
 // Modifier: `uk-panel-box`
 // ========================================================================
 
-.hook-panel-box() { box-shadow: 0 1px 4px rgba(0, 0, 0, 0.09); }
+.hook-panel-box() {}
 
 .hook-panel-box-hover() {}
 
@@ -71,7 +70,31 @@
 // Sub-modifier: `uk-panel-box-primary`
 //
 
-.hook-panel-box-primary() { box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12); }
+.hook-panel-box-primary() {
+
+    a { color: @global-contrast-color; }
+
+    > a:hover,
+    > a:not([class]):hover,
+    > :not([class*='uk-nav']) a:not([class]):hover { color: @global-contrast-color; }
+
+    /* Button */
+
+    .uk-button:hover,
+    .uk-button:focus {
+        border-color: fade(@button-color, 50%);
+        color: @button-color;
+
+    }
+
+    .uk-button-primary:hover {
+        background-color: #fff;
+        color: @global-dark-color;
+    }
+
+    [class*='uk-badge-'] { color: @global-contrast-color; }
+
+}
 
 .hook-panel-box-primary-hover() {}
 
@@ -89,13 +112,30 @@
 
 .hook-panel-hover() {}
 
-.hook-panel-hover-hover() { box-shadow: 0 1px 4px rgba(0, 0, 0, 0.09); }
+.hook-panel-hover-hover() {}
 
 
 // Modifier: `uk-panel-header`
 // ========================================================================
 
-.hook-panel-header() {}
+.hook-panel-header() {
+
+    position: relative;
+    padding-bottom: 20px;
+    border: none;
+
+    &::after {
+        display: block;
+        width: 20px;
+        content: "";
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-bottom: 1px solid @global-dark-color;
+    }
+
+}
 
 
 // Miscellaneous
@@ -103,9 +143,24 @@
 
 .hook-panel-misc() {
 
-    .uk-panel-space .uk-panel-badge {
-        top: 0;
-        right: 0;
+    /* Only xlarge screens */
+    @media (min-width: @breakpoint-xlarge) {
+
+        .uk-panel-space,
+        .uk-panel-box { padding: 50px; }
+
+        .uk-panel-box .uk-panel-teaser {
+            margin-top: -50px;
+            margin-left: -50px;
+            margin-right: -50px;
+        }
+
+        .uk-panel-space .uk-panel-teaser {
+            margin-top: -50px;
+            margin-left: -50px;
+            margin-right: -50px;
+        }
+
     }
 
 }

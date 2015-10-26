@@ -7,19 +7,17 @@
 // Variables
 // ========================================================================
 
-@breadcrumb-font-size:                          round((@global-font-size * 0.85)); // 12px / 14px
+@breadcrumb-font-size:                          13px;
 
-@breadcrumb-disabled-color:                     fade(@global-muted-color, 50%);
+@breadcrumb-divider:                            "|";
 @breadcrumb-divider-margin:                     12px;
+@breadcrumb-disabled-color:                     fade(@global-muted-color, 50%);
 
 
 // Component
 // ========================================================================
 
-.hook-breadcrumb() {
-    color: @global-muted-color;
-    text-transform: uppercase;
-}
+.hook-breadcrumb() { color: @global-muted-color; }
 
 
 // Items

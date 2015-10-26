@@ -8,13 +8,14 @@
 // ========================================================================
 
 @base-body-background:                          @global-background;
-@base-body-font-family:                         "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@base-body-font-family:                         "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @base-body-font-size:                           @global-font-size;
 @base-body-line-height:                         @global-line-height;
 @base-body-color:                               @global-color;
 
 @base-link-color:                               @global-link-color;
 @base-link-hover-color:                         @global-link-hover-color;
+
 @base-em-color:                                 #f0615c;
 @base-ins-background:                           #ffd;
 @base-ins-color:                                @global-color;
@@ -23,7 +24,7 @@
 
 @base-margin-vertical:                          @global-margin;
 
-@base-heading-font-family:                      "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@base-heading-font-family:                      "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @base-heading-font-weight:                      300;
 @base-heading-color:                            @global-dark-color;
 @base-heading-margin-top:                       @global-margin-large;
@@ -67,10 +68,7 @@
 // Body
 // ========================================================================
 
-.hook-base-body() {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+.hook-base-body() { font-weight: 300; }
 
 
 // Text-level semantics

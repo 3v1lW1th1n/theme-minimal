@@ -19,9 +19,7 @@ html { overflow-y: scroll; }
 /* Header
  ========================================================================== */
 
-.tm-header { padding-top: 150px; }
-
-.tm-logo { margin-bottom: 30px; }
+.tm-header { padding: 30px 0; }
 
 
 /* Phone landscape and smaller */
@@ -33,12 +31,18 @@ html { overflow-y: scroll; }
 
 }
 
+.tm-header + .tm-main { padding-top: 0; }
+
 
 /* Blocks
  ========================================================================== */
 
 /*
  * Footer
+ */
+
+/*
+ * Layout
  */
 
 /* Phone landscape and bigger */
@@ -49,9 +53,26 @@ html { overflow-y: scroll; }
         padding-bottom: 60px;
     }
 
+    .tm-bottom + .tm-footer { padding-top: 60px; }
+
 }
 
 .tm-footer .uk-panel + .uk-panel { margin-top: @global-grid-gutter; }
+
+/*
+ * Styling
+ */
+
+.tm-footer a,
+.tm-footer .uk-list a { color: @global-muted-color; }
+
+.tm-footer .uk-panel-title {
+    font-size: 13px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.tm-bottom + .tm-footer { background-color: #fff; }
 
 
 /* Blog
