@@ -33,16 +33,14 @@
         },
 
         data: function () {
-            return window.$theme;
+            return _.extend({config: {}}, window.$theme);
         },
 
         events: {
 
             save: function() {
 
-                var config = _.omit(this.config, ['positions', 'menus', 'widget']);
-
-                this.$http.post('admin/system/settings/config', {name: this.name, config: config}).error(function (data) {
+                this.$http.post('admin/system/settings/config', {name: this.name, config: this.config}).error(function (data) {
                     this.$notify(data, 'danger');
                 });
 
