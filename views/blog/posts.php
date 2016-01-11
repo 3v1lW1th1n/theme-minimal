@@ -3,10 +3,6 @@
 <?php foreach ($posts as $post) : ?>
 <article class="uk-article">
 
-    <?php if ($image = $post->get('image.src')): ?>
-    <a class="uk-display-block" href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><img src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>"></a>
-    <?php endif ?>
-
     <?php
 
         // Todo
@@ -14,13 +10,22 @@
 
     ?>
 
-    <div class="tm-container-small uk-margin-large-top">
+    <div class="tm-container-small uk-margin-large-bottom">
 
         <h1 class="uk-article-title <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>"><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
 
         <p class="uk-article-meta <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>">
-            <?= __('Written by %name% on %date%', ['%name%' => $post->user->name, '%date%' => '<time datetime="'.$post->date->format(\DateTime::W3C).'" v-cloak>{{ "'.$post->date->format(\DateTime::W3C).'" | date "longDate" }}</time>' ]) ?>
+            <time datetime="<?=$post->date->format(\DateTime::W3C)?>" v-cloak>{{ "<?=$post->date->format(\DateTime::W3C)?>" | date "longDate" }}</time>
         </p>
+
+    </div>
+
+    <?php if ($image = $post->get('image.src')): ?>
+    <a class="uk-display-block" href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><img src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>"></a>
+    <?php endif ?>
+
+
+    <div class="tm-container-small uk-margin-large-top">
 
         <div class="uk-margin"><?= $post->excerpt ?: $post->content ?></div>
 
