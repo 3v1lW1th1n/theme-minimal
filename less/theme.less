@@ -60,7 +60,37 @@ html { overflow-y: scroll; }
 /* Blog
  ========================================================================== */
 
+div + .uk-article.tm-container-small { margin-top: @global-grid-gutter-large; }
+
 .tm-container-small {
     max-width: 750px;
     margin: auto;
 }
+
+.tm-container-mini {
+    max-width: 600px;
+    margin: auto;
+}
+
+.uk-article + .uk-article .tm-article-border {
+
+    position: relative;
+    padding-top: 80px;
+    border: none;
+
+    &::before {
+        display: block;
+        width: 600px;
+        content: "";
+        position: absolute;
+        margin: auto;
+        right: 0;
+        left: 0;
+        top: 0;
+        border-top: 1px solid @global-border;
+    }
+
+}
+
+
+
