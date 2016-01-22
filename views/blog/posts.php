@@ -10,11 +10,11 @@
 
     ?>
 
-    <div class="uk-margin-large-bottom tm-article-border">
+    <div class="tm-article-border">
 
         <h1 class="uk-article-title uk-margin-small-bottom <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>"><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
 
-        <p class="uk-article-meta uk-margin-small <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>">
+        <p class="uk-article-meta uk-margin-small-top <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>">
             <time datetime="<?=$post->date->format(\DateTime::W3C)?>" v-cloak>{{ "<?=$post->date->format(\DateTime::W3C)?>" | date "longDate" }}</time>
         </p>
 
