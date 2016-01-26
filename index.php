@@ -76,6 +76,7 @@ return [
      */
     'config' => [
 
+        'logo_offcanvas' => '',
         'blog_alignment' => true
 
     ],
