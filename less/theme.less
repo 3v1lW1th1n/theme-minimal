@@ -7,6 +7,20 @@
    Theme
  ========================================================================== */
 
+@theme-container-mini:                               600px;
+@theme-container-small:                              750px;
+
+@theme-container-small-margin-top:                   20px;
+@theme-container-small-margin-large-top:             @global-grid-gutter-large;
+
+@theme-article-border-padding:                       50px;
+@theme-article-border-padding-large:                 80px;
+
+
+// Theme Variables
+// ==========================================================================
+
+
 [v-cloak] { display: none; }
 
 /*
@@ -39,7 +53,7 @@ html { overflow-y: scroll; }
  * Footer
  */
 
-/* Phone landscape and bigger */
+/* Tablet and bigger */
 @media (min-width: @breakpoint-medium) {
 
     .tm-footer {
@@ -60,27 +74,26 @@ html { overflow-y: scroll; }
 /* Blog
  ========================================================================== */
 
-div + .uk-article.tm-container-small { margin-top: 20px; }
+.tm-container-mini {
+    max-width: @theme-container-mini;
+    margin: auto;
+}
 
 .tm-container-small {
-    max-width: 750px;
+    max-width: @theme-container-small;
     margin: auto;
 }
 
-.tm-container-mini {
-    max-width: 600px;
-    margin: auto;
-}
+.uk-article:first-of-type.tm-container-small { margin-top: @theme-container-small-margin-top; }
 
 .uk-article + .uk-article .tm-article-border {
 
     position: relative;
-    padding-top: 50px;
+    padding-top: @theme-article-border-padding;
     border: none;
 
     &::before {
         display: block;
-        width: 600px;
         content: "";
         position: absolute;
         margin: auto;
@@ -92,16 +105,15 @@ div + .uk-article.tm-container-small { margin-top: 20px; }
 
 }
 
-/* Phone landscape and bigger */
+/* Tablet and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    div + .uk-article.tm-container-small { margin-top: @global-grid-gutter-large; }
+   .uk-article:first-of-type.tm-container-small { margin-top: @theme-container-small-margin-large-top; }
 
-   .tm-article-border { margin-bottom: 50px; }
+   .tm-article-border { margin-bottom: @theme-article-border-padding; }
 
-   .uk-article + .uk-article .tm-article-border { padding-top: 80px; }
+   .uk-article + .uk-article .tm-article-border { padding-top: @theme-article-border-padding-large; }
+
+   .uk-article + .uk-article .tm-article-border:before { width: @theme-container-mini; }
 
 }
-
-
-
