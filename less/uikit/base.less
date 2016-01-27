@@ -45,7 +45,6 @@
 @base-hr-border:                                @global-border;
 
 @base-blockquote-padding-left:                  0;
-@base-blockquote-border:                        transparent;
 @base-blockquote-border-width:                  0;
 @base-blockquote-font-size:                     round((@global-font-size * 1.14)); // 18px
 @base-blockquote-line-height:                   round((@base-blockquote-font-size * 1.55)); // 28px
@@ -56,7 +55,6 @@
 @base-pre-padding:                              30px;
 @base-pre-background:                           @global-background;
 @base-pre-color:                                @global-color;
-@base-pre-font-family:                          'Roboto Mono';
 @base-pre-font-size:                            12px;
 @base-pre-line-height:                          18px;
 
@@ -66,7 +64,6 @@
 
 @base-code-border:                              @global-border;
 @base-pre-border:                               @global-border;
-
 
 
 // Body
@@ -90,7 +87,6 @@
     padding: 1px 6px 3px 6px;
     border: 1px solid @base-code-border;
     border-radius: 3px;
-    font-family: 'Roboto Mono';
 }
 
 
@@ -122,8 +118,8 @@
 // ========================================================================
 
 .hook-base-blockquote() {
-    text-align: center;
     color: @global-dark-color;
+    text-align: center;
     font-weight: 300;
 }
 

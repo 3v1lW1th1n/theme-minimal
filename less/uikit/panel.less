@@ -70,33 +70,7 @@
 // Sub-modifier: `uk-panel-box-primary`
 //
 
-.hook-panel-box-primary() {
-
-    a { color: @global-contrast-color; }
-
-    > a:hover,
-    > a:not([class]):hover,
-    > :not([class*='uk-nav']) a:not([class]):hover { color: @global-contrast-color; }
-
-    /* Button */
-
-    .uk-button:hover,
-    .uk-button:focus {
-        border-color: fade(@button-color, 50%);
-        color: @button-color;
-
-    }
-
-    .uk-button-primary:hover,
-    .uk-button-primary:focus {
-        background-color: #fff;
-        border-color: #fff;
-        color: @global-dark-color;
-    }
-
-    [class*='uk-badge-'] { color: @global-contrast-color; }
-
-}
+.hook-panel-box-primary() {}
 
 .hook-panel-box-primary-hover() {}
 
