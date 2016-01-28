@@ -18,7 +18,7 @@
 
                     <?php if ($params['logo']) : ?>
                     <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
-                        <img class="tm-logo" src="<?= $this->escape($params['logo']) ?>" alt="">
+                        <img src="<?= $this->escape($params['logo']) ?>" alt="">
                     </a>
                     <?php endif ?>
 
@@ -103,14 +103,10 @@
             <div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
 
                 <?php if ($params['logo_offcanvas']) : ?>
-                <div class="uk-panel">
-
-                        <a href="<?= $view->url()->get() ?>">
-
-                            <img src="<?= ($params['logo_offcanvas']) ? $this->escape($params['logo_offcanvas']) : $this->escape($params['logo']) ?>" alt="">
-
-                        </a>
-
+                <div class="uk-panel uk-text-center">
+                    <a href="<?= $view->url()->get() ?>">
+                        <img src="<?= $this->escape($params['logo_offcanvas']) ?>" alt="">
+                    </a>
                 </div>
                 <?php endif ?>
 

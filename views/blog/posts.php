@@ -24,7 +24,6 @@
     <a class="uk-display-block" href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><img src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>"></a>
     <?php endif ?>
 
-
     <div class="uk-margin-large-top tm-container-mini">
 
         <div class="uk-margin"><?= $post->excerpt ?: $post->content ?></div>
