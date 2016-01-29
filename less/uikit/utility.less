@@ -7,7 +7,10 @@
 // Variables
 // ========================================================================
 
+@utility-container-max-width:                   1200px;
 @utility-container-padding-horizontal:          @global-grid-gutter;
+
+@utility-container-large-max-width:             1430px;
 @utility-container-large-padding-horizontal:    @global-grid-gutter-large;
 
 @utility-align-horizontal:                      @global-margin;
@@ -15,6 +18,7 @@
 
 @utility-margin:                                @global-margin;
 @utility-margin-small:                          15px;
+@utility-margin-large:                          60px;
 
 @utility-border-rounded:                        3px;
 
@@ -27,6 +31,12 @@
 @utility-link-muted-hover-color:                @global-color;
 
 @utility-scrollable-box-border:                 @global-border;
+
+//
+// New
+//
+
+@utility-container-small-padding-horizontal:    25px;
 
 
 // Container
@@ -49,7 +59,7 @@
     /* Phones and smaller */
     @media (max-width: @breakpoint-small-max) {
 
-        .uk-container { padding: 0 15px; }
+        .uk-container { padding: 0 @utility-container-small-padding-horizontal; }
 
     }
 

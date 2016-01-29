@@ -8,10 +8,7 @@
  ========================================================================== */
 
 @theme-container-mini:                               600px;
-@theme-container-small:                              750px;
-
-@theme-container-small-margin-top:                   20px;
-@theme-container-small-margin-large-top:             @global-grid-gutter-large;
+@theme-container-small:                              850px;
 
 @theme-article-border-padding:                       50px;
 @theme-article-border-padding-large:                 80px;
@@ -33,13 +30,13 @@ html { overflow-y: scroll; }
 /* Navbar
  ========================================================================== */
 
-.tm-navbar { padding: 30px 0; }
+.tm-navbar { padding: @utility-container-small-padding-horizontal 0; }
 
 
-/* Phone landscape and smaller */
-@media (max-width: @breakpoint-small-max) {
+/* Tablet and bigger */
+@media (min-width: @breakpoint-medium) {
 
-    .tm-navbar { padding: 10px 0; }
+    .tm-navbar { padding: 80px 0; }
 
 }
 
@@ -57,8 +54,8 @@ html { overflow-y: scroll; }
 @media (min-width: @breakpoint-medium) {
 
     .tm-footer {
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 
 }
@@ -84,8 +81,6 @@ html { overflow-y: scroll; }
     margin: auto;
 }
 
-.uk-article:first-of-type.tm-container-small { margin-top: @theme-container-small-margin-top; }
-
 .uk-article + .uk-article .tm-article-border {
 
     position: relative;
@@ -107,8 +102,6 @@ html { overflow-y: scroll; }
 
 /* Tablet and bigger */
 @media (min-width: @breakpoint-medium) {
-
-   .uk-article:first-of-type.tm-container-small { margin-top: @theme-container-small-margin-large-top; }
 
    .tm-article-border { margin-bottom: @theme-article-border-padding; }
 
