@@ -30,11 +30,18 @@ html { overflow-y: scroll; }
 /* Navbar
  ========================================================================== */
 
-.tm-navbar { padding: @utility-container-small-padding-horizontal 0; }
+.tm-navbar { padding: 10px 0; }
 
 
 /* Tablet and bigger */
 @media (min-width: @breakpoint-medium) {
+
+    .tm-navbar { padding: 50px 0; }
+
+}
+
+/* Large screens and bigger */
+@media (min-width: @breakpoint-xlarge) {
 
     .tm-navbar { padding: 80px 0; }
 
