@@ -3,7 +3,7 @@
 <?php foreach ($posts as $post) : ?>
 <article class="uk-article tm-container-small">
 
-    <div class="tm-article-border">
+    <div class="tm-article-border uk-text-center">
 
         <h1 class="uk-article-title uk-margin-small-bottom"><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
 
@@ -22,7 +22,7 @@
         <div class="uk-margin"><?= $post->excerpt ?: $post->content ?></div>
 
         <div class="uk-margin-large-top">
-            <ul class="uk-subnav uk-margin-bottom-remove">
+            <ul class="uk-subnav uk-flex-center uk-margin-bottom-remove">
 
                 <?php if (isset($post->readmore) && $post->readmore || $post->excerpt) : ?>
                 <li><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= __('Read more') ?></a></li>

@@ -2,7 +2,7 @@
 
 <article class="uk-article tm-container-small">
 
-    <div class="tm-article-border">
+    <div class="tm-article-border uk-text-center">
 
         <h1 class="uk-article-title uk-margin-small-bottom"><?= $post->title ?></h1>
 
