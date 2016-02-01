@@ -2,17 +2,11 @@
 
 <article class="uk-article tm-container-small">
 
-    <?php
-
-        // Todo
-        $params['blog_alignment'] = true;
-
-    ?>
     <div class="tm-article-border">
 
-        <h1 class="uk-article-title uk-margin-small-bottom <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>"><?= $post->title ?></h1>
+        <h1 class="uk-article-title uk-margin-small-bottom"><?= $post->title ?></h1>
 
-        <p class="uk-article-meta uk-margin-small-top <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>">
+        <p class="uk-article-meta uk-margin-small-top">
             <time datetime="<?=$post->date->format(\DateTime::W3C)?>" v-cloak>{{ "<?=$post->date->format(\DateTime::W3C)?>" | date "longDate" }}</time>
         </p>
 

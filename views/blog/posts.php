@@ -3,18 +3,11 @@
 <?php foreach ($posts as $post) : ?>
 <article class="uk-article tm-container-small">
 
-    <?php
-
-        // Todo
-        $params['blog_alignment'] = true;
-
-    ?>
-
     <div class="tm-article-border">
 
-        <h1 class="uk-article-title uk-margin-small-bottom <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>"><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
+        <h1 class="uk-article-title uk-margin-small-bottom"><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
 
-        <p class="uk-article-meta uk-margin-small-top <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>">
+        <p class="uk-article-meta uk-margin-small-top">
             <time datetime="<?=$post->date->format(\DateTime::W3C)?>" v-cloak>{{ "<?=$post->date->format(\DateTime::W3C)?>" | date "longDate" }}</time>
         </p>
 
@@ -29,7 +22,7 @@
         <div class="uk-margin"><?= $post->excerpt ?: $post->content ?></div>
 
         <div class="uk-margin-large-top">
-            <ul class="uk-subnav uk-margin-bottom-remove <?= ($params['blog_alignment']) ? 'uk-flex-center' : '' ?>">
+            <ul class="uk-subnav uk-margin-bottom-remove">
 
                 <?php if (isset($post->readmore) && $post->readmore || $post->excerpt) : ?>
                 <li><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= __('Read more') ?></a></li>

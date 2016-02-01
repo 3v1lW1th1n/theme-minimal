@@ -76,8 +76,7 @@ return [
      */
     'config' => [
 
-        'logo_offcanvas' => '',
-        'blog_alignment' => true
+        'logo_offcanvas' => ''
 
     ],
 
@@ -108,9 +107,6 @@ return [
                 return;
             }
 
-            $classes = [];
-
-            $event['classes'] = $classes;
         },
 
         'view.system/site/widget-menu' => function ($event, $view) {
