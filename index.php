@@ -52,7 +52,8 @@ return [
         'sidebar_first' => false,
         'top_style' => 'uk-block-muted',
         'main_style' => 'uk-block-default',
-        'bottom_style' => 'uk-block-muted'
+        'bottom_style' => 'uk-block-muted',
+        'footer_style' => 'uk-block-default'
 
     ],
 

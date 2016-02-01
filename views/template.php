@@ -87,7 +87,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('footer')) : ?>
-        <div id="tm-footer" class="tm-footer uk-block  <?= (!$view->position()->exists('bottom')) ? 'uk-block-muted' : ''; ?>">
+        <div id="tm-footer" class="tm-footer uk-block <?= $params['footer_style'] ?>">
             <div class="uk-container uk-container-center">
 
                 <section class="uk-grid uk-grid-match" data-uk-grid-margin>
