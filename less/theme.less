@@ -13,6 +13,9 @@
 @theme-article-border-padding:                       50px;
 @theme-article-border-padding-large:                 80px;
 
+@theme-image-margin-top:                             30px;
+@theme-image-large-margin-top:                       50px;
+
 
 // Theme Variables
 // ==========================================================================
@@ -30,7 +33,7 @@ html { overflow-y: scroll; }
 /* Navbar
  ========================================================================== */
 
-.tm-navbar { padding: 10px 0; }
+.tm-navbar { padding: 20px 0 40px 0; }
 
 
 /* Tablet and bigger */
@@ -78,42 +81,24 @@ html { overflow-y: scroll; }
 /* Blog
  ========================================================================== */
 
-.tm-container-mini {
-    max-width: @theme-container-mini;
-    margin: auto;
-}
-
 .tm-container-small {
     max-width: @theme-container-small;
     margin: auto;
 }
 
-.uk-article + .uk-article .tm-article-border {
 
-    position: relative;
-    padding-top: @theme-article-border-padding;
-    border: none;
-
-    &::before {
-        display: block;
-        content: "";
-        position: absolute;
-        margin: auto;
-        right: 0;
-        left: 0;
-        top: 0;
-        border-top: 1px solid @global-border;
-    }
-
+.tm-container-mini {
+    max-width: @theme-container-mini;
+    margin: auto;
 }
+
+.tm-margin-top { margin-top: @theme-image-margin-top; }
 
 /* Tablet and bigger */
 @media (min-width: @breakpoint-medium) {
 
-   .tm-article-border { margin-bottom: @theme-article-border-padding; }
+   .tm-margin-top { margin-top: @theme-image-large-margin-top; }
 
-   .uk-article + .uk-article .tm-article-border { padding-top: @theme-article-border-padding-large; }
-
-   .uk-article + .uk-article .tm-article-border:before { width: @theme-container-mini; }
+   .uk-article + .uk-article:before { width: @theme-container-mini; }
 
 }

@@ -3,21 +3,17 @@
 <?php foreach ($posts as $post) : ?>
 <article class="uk-article tm-container-small">
 
-    <div class="tm-article-border uk-text-center">
+    <h1 class="uk-article-title uk-margin-bottom uk-text-center"><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
 
-        <h1 class="uk-article-title uk-margin-small-bottom"><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
-
-        <p class="uk-article-meta uk-margin-small-top">
-            <time datetime="<?=$post->date->format(\DateTime::W3C)?>" v-cloak>{{ "<?=$post->date->format(\DateTime::W3C)?>" | date "longDate" }}</time>
-        </p>
-
-    </div>
+    <p class="uk-article-meta uk-margin-remove uk-text-center">
+        <time datetime="<?=$post->date->format(\DateTime::W3C)?>" v-cloak>{{ "<?=$post->date->format(\DateTime::W3C)?>" | date "longDate" }}</time>
+    </p>
 
     <?php if ($image = $post->get('image.src')): ?>
-    <a class="uk-display-block" href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><img src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>"></a>
+    <a class="uk-display-block tm-margin-top" href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><img src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>"></a>
     <?php endif ?>
 
-    <div class="uk-margin-large-top tm-container-mini">
+    <div class="tm-margin-top tm-container-mini">
 
         <div class="uk-margin"><?= $post->excerpt ?: $post->content ?></div>
 

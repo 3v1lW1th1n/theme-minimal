@@ -2,21 +2,17 @@
 
 <article class="uk-article tm-container-small">
 
-    <div class="tm-article-border uk-text-center">
+    <h1 class="uk-article-title uk-text-center uk-margin-bottom"><?= $post->title ?></h1>
 
-        <h1 class="uk-article-title uk-margin-small-bottom"><?= $post->title ?></h1>
-
-        <p class="uk-article-meta uk-margin-small-top">
-            <time datetime="<?=$post->date->format(\DateTime::W3C)?>" v-cloak>{{ "<?=$post->date->format(\DateTime::W3C)?>" | date "longDate" }}</time>
-        </p>
-
-    </div>
+    <p class="uk-article-meta uk-text-center uk-margin-remove">
+        <time datetime="<?=$post->date->format(\DateTime::W3C)?>" v-cloak>{{ "<?=$post->date->format(\DateTime::W3C)?>" | date "longDate" }}</time>
+    </p>
 
     <?php if ($image = $post->get('image.src')): ?>
-    <img src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>">
+    <img class="tm-margin-top" src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>">
     <?php endif ?>
 
-    <div class="uk-margin-large-top tm-container-mini">
+    <div class="tm-margin-top tm-container-mini">
 
         <?= $post->content ?>
 
