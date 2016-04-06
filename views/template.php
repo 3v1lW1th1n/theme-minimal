@@ -16,11 +16,13 @@
 
                 <nav class="uk-navbar">
 
-                    <?php if ($params['logo']) : ?>
                     <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
-                        <img class="uk-responsive-height" src="<?= $this->escape($params['logo']) ?>" alt="">
+                        <?php if ($params['logo']) : ?>
+                            <img class="uk-responsive-height" src="<?= $this->escape($params['logo']) ?>" alt="">
+                        <?php else : ?>
+                            <?= $app->config('system/site')->get('title') ?>
+                        <?php endif ?>
                     </a>
-                    <?php endif ?>
 
                     <?php if ($view->menu()->exists('main') || $view->position()->exists('navbar')) : ?>
                     <div class="uk-navbar-flip uk-hidden-small">
