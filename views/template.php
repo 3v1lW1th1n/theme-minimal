@@ -18,7 +18,7 @@
 
                     <?php if ($params['logo']) : ?>
                     <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
-                        <img src="<?= $this->escape($params['logo']) ?>" alt="">
+                        <img class="uk-responsive-height" src="<?= $this->escape($params['logo']) ?>" alt="">
                     </a>
                     <?php endif ?>
 
