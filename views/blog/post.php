@@ -1,27 +1,24 @@
 <?php $view->script('post', 'blog:app/bundle/post.js', 'vue') ?>
 
-<article class="uk-article">
+<article class="uk-article tm-container-small">
+
+    <h1 class="uk-article-title uk-text-center uk-margin-bottom"><?= $post->title ?></h1>
+
+    <p class="uk-article-meta uk-text-center uk-margin-remove">
+        <time datetime="<?=$post->date->format(\DateTime::W3C)?>" v-cloak>{{ "<?=$post->date->format(\DateTime::W3C)?>" | date "longDate" }}</time>
+    </p>
 
     <?php if ($image = $post->get('image.src')): ?>
-    <img src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>">
+    <img class="tm-margin-top" src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>">
     <?php endif ?>
 
-    <div class="tm-container-small uk-margin-large-top">
+    <div class="tm-margin-top tm-container-mini">
 
-        <?php
+        <?= $post->content ?>
 
-            // Todo
-            $params['blog_alignment'] = true;
-
-        ?>
-
-        <h1 class="uk-article-title <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>"><?= $post->title ?></h1>
-
-        <p class="uk-article-meta <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>">
+        <p class="uk-article-meta">
             <?= __('Written by %name% on %date%', ['%name%' => $post->user->name, '%date%' => '<time datetime="'.$post->date->format(\DateTime::W3C).'" v-cloak>{{ "'.$post->date->format(\DateTime::W3C).'" | date "longDate" }}</time>' ]) ?>
         </p>
-
-        <div class="uk-margin"><?= $post->content ?></div>
 
         <?= $view->render('blog/comments.php') ?>
 

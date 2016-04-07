@@ -49,7 +49,11 @@ return [
         'title_large' => false,
         'alignment' => '',
         'html_class' => '',
-        'sidebar_first' => false
+        'sidebar_first' => false,
+        'top_style' => 'uk-block-muted',
+        'main_style' => 'uk-block-default',
+        'bottom_style' => 'uk-block-muted',
+        'footer_style' => 'uk-block-default'
 
     ],
 
@@ -76,7 +80,7 @@ return [
      */
     'config' => [
 
-        'blog_alignment' => true
+        'logo_offcanvas' => ''
 
     ],
 
@@ -107,9 +111,6 @@ return [
                 return;
             }
 
-            $classes = [];
-
-            $event['classes'] = $classes;
         },
 
         'view.system/site/widget-menu' => function ($event, $view) {

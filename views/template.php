@@ -16,11 +16,13 @@
 
                 <nav class="uk-navbar">
 
-                    <?php if ($params['logo']) : ?>
                     <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
-                        <img class="tm-logo" src="<?= $this->escape($params['logo']) ?>" alt="">
+                        <?php if ($params['logo']) : ?>
+                            <img class="uk-responsive-height" src="<?= $this->escape($params['logo']) ?>" alt="">
+                        <?php else : ?>
+                            <?= $params['title'] ?>
+                        <?php endif ?>
                     </a>
-                    <?php endif ?>
 
                     <?php if ($view->menu()->exists('main') || $view->position()->exists('navbar')) : ?>
                     <div class="uk-navbar-flip uk-hidden-small">
@@ -42,7 +44,7 @@
         <?php endif ?>
 
         <?php if ($view->position()->exists('top')) : ?>
-        <div id="tm-top" class="tm-top uk-block uk-block-muted">
+        <div id="tm-top" class="tm-top uk-block <?= $params['top_style'] ?>">
             <div class="uk-container uk-container-center">
 
                 <section class="uk-grid uk-grid-match" data-uk-grid-margin>
@@ -53,7 +55,7 @@
         </div>
         <?php endif; ?>
 
-        <div id="tm-main" class="tm-main uk-block uk-block-default">
+        <div id="tm-main" class="tm-main uk-block <?= $params['main_style'] ?>">
             <div class="uk-container uk-container-center">
 
                 <div class="uk-grid" data-uk-grid-match data-uk-grid-margin>
@@ -75,7 +77,7 @@
         </div>
 
         <?php if ($view->position()->exists('bottom')) : ?>
-        <div id="tm-bottom" class="tm-bottom uk-block uk-block-muted">
+        <div id="tm-bottom" class="tm-bottom uk-block <?= $params['bottom_style'] ?>">
             <div class="uk-container uk-container-center">
 
                 <section class="uk-grid uk-grid-match" data-uk-grid-margin>
@@ -87,7 +89,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('footer')) : ?>
-        <div id="tm-footer" class="tm-footer uk-block  <?= (!$view->position()->exists('bottom')) ? 'uk-block-muted' : ''; ?>">
+        <div id="tm-footer" class="tm-footer uk-block <?= $params['footer_style'] ?>">
             <div class="uk-container uk-container-center">
 
                 <section class="uk-grid uk-grid-match" data-uk-grid-margin>
@@ -101,6 +103,14 @@
         <?php if ($view->position()->exists('offcanvas') || $view->menu()->exists('offcanvas')) : ?>
         <div id="offcanvas" class="uk-offcanvas">
             <div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
+
+                <?php if ($params['logo_offcanvas']) : ?>
+                <div class="uk-panel uk-text-center">
+                    <a href="<?= $view->url()->get() ?>">
+                        <img src="<?= $this->escape($params['logo_offcanvas']) ?>" alt="">
+                    </a>
+                </div>
+                <?php endif ?>
 
                 <?php if ($view->menu()->exists('offcanvas')) : ?>
                     <?= $view->menu('offcanvas', ['class' => 'uk-nav-offcanvas']) ?>

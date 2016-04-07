@@ -1,31 +1,24 @@
 <?php $view->script('posts', 'blog:app/bundle/posts.js', 'vue') ?>
 
 <?php foreach ($posts as $post) : ?>
-<article class="uk-article">
+<article class="uk-article tm-container-small">
+
+    <h1 class="uk-article-title uk-margin-bottom uk-text-center"><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
+
+    <p class="uk-article-meta uk-margin-remove uk-text-center">
+        <time datetime="<?=$post->date->format(\DateTime::W3C)?>" v-cloak>{{ "<?=$post->date->format(\DateTime::W3C)?>" | date "longDate" }}</time>
+    </p>
 
     <?php if ($image = $post->get('image.src')): ?>
-    <a class="uk-display-block" href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><img src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>"></a>
+    <a class="uk-display-block tm-margin-top" href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><img src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>"></a>
     <?php endif ?>
 
-    <?php
-
-        // Todo
-        $params['blog_alignment'] = true;
-
-    ?>
-
-    <div class="tm-container-small uk-margin-large-top">
-
-        <h1 class="uk-article-title <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>"><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
-
-        <p class="uk-article-meta <?= ($params['blog_alignment']) ? 'uk-text-center' : '' ?>">
-            <?= __('Written by %name% on %date%', ['%name%' => $post->user->name, '%date%' => '<time datetime="'.$post->date->format(\DateTime::W3C).'" v-cloak>{{ "'.$post->date->format(\DateTime::W3C).'" | date "longDate" }}</time>' ]) ?>
-        </p>
+    <div class="tm-margin-top tm-container-mini">
 
         <div class="uk-margin"><?= $post->excerpt ?: $post->content ?></div>
 
         <div class="uk-margin-large-top">
-            <ul class="uk-subnav <?= ($params['blog_alignment']) ? 'uk-flex-center' : '' ?>">
+            <ul class="uk-subnav uk-flex-center uk-margin-bottom-remove">
 
                 <?php if (isset($post->readmore) && $post->readmore || $post->excerpt) : ?>
                 <li><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= __('Read more') ?></a></li>
@@ -53,7 +46,7 @@
 ?>
 
 <?php if ($total > 1) : ?>
-<ul class="uk-pagination">
+<ul class="uk-pagination uk-margin-large-top">
 
 
     <?php for($i=1;$i<=$total;$i++): ?>
