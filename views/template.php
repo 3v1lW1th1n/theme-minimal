@@ -20,7 +20,7 @@
                         <?php if ($params['logo']) : ?>
                             <img class="uk-responsive-height" src="<?= $this->escape($params['logo']) ?>" alt="">
                         <?php else : ?>
-                            <?= $app->config('system/site')->get('title') ?>
+                            <?= $params['title'] ?>
                         <?php endif ?>
                     </a>
 
