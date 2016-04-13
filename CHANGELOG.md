@@ -1,6 +1,6 @@
 # Changelog
 
-## WIP
+## 1.0.1 (April 13, 2016)
 
 ### Fixed
 - Fixed article divider
