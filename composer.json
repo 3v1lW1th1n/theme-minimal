@@ -1,7 +1,7 @@
 {
     "name": "pagekit/theme-minimal",
     "type": "pagekit-theme",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "title": "Minimal",
     "description": "A very clean and simple theme great for blogging.",
     "license": "MIT",
